@@ -48,3 +48,22 @@ const grape = document.createElement("li");
 apple.innerText = "ぶどう";
 list.append(grape);
 ```
+
+- 宣言的UI
+
+```JavaScript
+function Fruits() {
+    return (
+       <ul>
+    <li>りんご</li>
+    <li>オレンジ</li>
+    <li>ぶどう</li>
+</ul>
+    )
+}
+```
+
+命令的コードはどのようにHTML作成したらいいかをいちいち指示なければいけない。
+対して宣言的UIは「このような表示」を生成してほしいという目標だけが書かれている。
+
+宣言的UIでは実装の細部やアルゴリズムを気にしなくていい（本当に？）「どんなUIにしたいか」の一点に集中して開発できる。

@@ -5,11 +5,12 @@ module.exports = {
     es2021: true,
   },
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
+    ecmaVersion: "latest",
+    sourceType: "module",
   },
-  extends: ['airbnb-base'],
+  extends: ["airbnb-base"],
   rules: {
-    'import/prefer-default-export': 'off',
+    "import/prefer-default-export": "off",
+    quotes: ["error", "double"],
   },
 };

@@ -4,11 +4,12 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  perserOptions: {
+  parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
   },
   rules: {
     "no-console": "error",
+    camelcase: ["error", {properties: "never"}],
   },
 };

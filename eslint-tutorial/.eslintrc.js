@@ -5,8 +5,8 @@ module.exports = {
     es2021: true,
   },
   parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
+    ecmaVersion: 'latest',
+    sourceType: 'module',
   },
-  extends: ["sirbnb-base"],
+  extends: ['airbnb-base'],
 };

@@ -1,5 +1,7 @@
 try {
-  throw new Error("例外が投げられました");
+  console.log(x);
 } catch (error) {
-  console.log(error);
+  console.log(error instanceof ReferenceError);
+  console.log(error.name);
+  console.log(error.message);
 }

@@ -1,3 +1,5 @@
-let x = 1;
-x = "hello";
-console.log(x.substring(1,3))
+const value = "str";
+
+if (typeof value === "string" && value === "str") {
+  console.log(`${value} is string value`);
+}

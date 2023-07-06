@@ -1,10 +1,15 @@
-class Point {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
+class Counter {
+  constructor() {
+    this.count = 0;
+  }
+
+  increment() {
+    this.count++;
   }
 }
 
-const point = new Point(3, 4);
-console.log(point.x);
-console.log(point.y);
+const counterA = new Counter();
+const counterB = new Counter();
+counterA.increment();
+console.log(counterA.count);
+console.log(counterB.count);

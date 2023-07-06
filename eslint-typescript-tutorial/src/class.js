@@ -2,10 +2,9 @@ class MyClass {
   constructor() {}
 }
 
-const MyClass = class MyClass {
-  constructor() {}
-};
+const myClass = new MyClass();
+const myClass2 = new MyClass();
 
-const AnonymousClass = class {
-  constructor() {}
-};
+console.log(myClass === myClass2);
+console.log(myClass instanceof MyClass);
+console.log(myClass2 instanceof MyClass);

@@ -1,10 +1,10 @@
-class MyClass {
-  constructor() {}
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
 }
 
-const myClass = new MyClass();
-const myClass2 = new MyClass();
-
-console.log(myClass === myClass2);
-console.log(myClass instanceof MyClass);
-console.log(myClass2 instanceof MyClass);
+const point = new Point(3, 4);
+console.log(point.x);
+console.log(point.y);

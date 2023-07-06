@@ -1,5 +1,5 @@
 class NumWrapper {
-  _value;
+  #value;
   constructor(value) {
     this._value = value;
   }
@@ -14,4 +14,4 @@ class NumWrapper {
 }
 
 const numWrapper = new NumWrapper(1);
-console.log(numWrapper._value);
+console.log(numWrapper.#value);

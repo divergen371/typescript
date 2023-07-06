@@ -4,7 +4,7 @@ class ArrayWrapper {
   }
 
   static of(...items) {
-    return new ArrayWrapper(items);
+    return new this(items);
   }
 
   get length() {
@@ -12,8 +12,5 @@ class ArrayWrapper {
   }
 }
 
-const arrayWrapperA = new ArrayWrapper([1, 2, 3]);
-const arrayWrapperB = ArrayWrapper.of(1, 2, 3);
-
-console.log(arrayWrapperA.length);
-console.log(arrayWrapperB.length);
+const arrayWrapper = ArrayWrapper.of(1, 2, 3);
+console.log(arrayWrapper.length);

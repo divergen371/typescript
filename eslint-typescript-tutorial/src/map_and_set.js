@@ -3,21 +3,10 @@ const map = new Map([
   ["b", 2],
 ]);
 
-const keys = [];
+const entries = [];
 
-for (const key of map.keys()) {
-  keys.push(key);
+for (const [key, value] of map.entries()) {
+  entries.push(`${key}: ${value}`);
 }
 
-console.log(keys);
-const keysArray = Array.from(map.keys());
-console.log(keysArray);
-
-const values = [];
-for (const value of map.values()) {
-  values.push(value);
-}
-
-console.log(values);
-const valueArray = Array.from(map.values());
-console.log(valueArray);
+console.log(entries);

@@ -3,3 +3,5 @@ const map = new Map([
   ["b", 1],
 ]);
 console.log(map.size);
+map.set("c", 3);
+console.log(map.size);

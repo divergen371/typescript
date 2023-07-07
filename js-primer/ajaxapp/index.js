@@ -1,6 +1,7 @@
 async function main() {
   try {
-    const userInfo = await fetchUserInfo("divergen371");
+    const userId = getUserId();
+    const userInfo = await fetchUserInfo(userId);
     const view = createView(userInfo);
     displayView(view);
   } catch (error) {
@@ -8,6 +9,9 @@ async function main() {
   }
 }
 
+function getUserId() {
+  return document.getElementById("userId").value;
+}
 function fetchUserInfo(userId) {
   return fetch(
     `https://api.github.com/users/${encodeURIComponent(userId)}`

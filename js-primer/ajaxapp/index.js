@@ -1,26 +1,23 @@
-function main() {
-  fetchUserInfo("divergen371")
-    .then((userInfo) => {
-      createView(userInfo);
-    })
-    .then((view) => {
-      displayView(view);
-    })
-    .catch((error) => {
-      console.error(`エラーが発生しました${error}`);
-    });
+async function main() {
+  try {
+    const userInfo = await fetchUserInfo("divergen371");
+    const view = createView(userInfo);
+    displayView(view);
+  } catch (error) {
+    console.error(`エラーが発生しました (${error})`);
+  }
 }
 
 function fetchUserInfo(userId) {
-  fetch(`https://api.github.com/users/${encodeURIComponent(userId)}`).then(
-    (res) => {
-      if (!res.ok) {
-        return Promise.reject(new Error(`${res.status}: ${res.statusText}`));
-      } else {
-        return res.json();
-      }
+  return fetch(
+    `https://api.github.com/users/${encodeURIComponent(userId)}`
+  ).then((res) => {
+    if (!res.ok) {
+      return Promise.reject(new Error(`${res.status}: ${res.statusText}`));
+    } else {
+      return res.json();
     }
-  );
+  });
 }
 
 function createView(userInfo) {

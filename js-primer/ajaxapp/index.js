@@ -1,12 +1,26 @@
+function main() {
+  fetchUserInfo("divergen371");
+}
+
 function fetchUserInfo(userId) {
   fetch(`https://api.github.com/users/${encodeURIComponent(userId)}`)
     .then((res) => {
-      console.log(res.status);
       if (!res.ok) {
         console.log("エラーレスポンス", res);
       } else {
         return res.json().then((userInfo) => {
-          const view = `
+          const view = createView(userInfo);
+          displayView(view);
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(error);
+    });
+}
+
+function createView(userInfo) {
+  return escapeHTML`
             <h4>${userInfo.name} (@${userInfo.login})</h4>
             <img src="${userInfo.avatar_url}" alt="${userInfo.login}" height="100">
             <dl>
@@ -16,15 +30,11 @@ function fetchUserInfo(userId) {
                 <dd>${userInfo.public_repos}</dd>
             </dl>
             `;
+}
 
-          const result = document.getElementById("result");
-          result.innerHTML = view;
-        });
-      }
-    })
-    .catch((err) => {
-      console.log(error);
-    });
+function displayView(view) {
+  const result = document.getElementById("result");
+  result.innerHTML = view;
 }
 
 function escapeSpecialChars(str) {

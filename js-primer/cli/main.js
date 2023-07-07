@@ -1,5 +1,9 @@
 import { program } from "commander";
-program.parse(process.argv);
+import * as fs from "node:fs/promises";
 
+program.parse(process.argv);
 const filePath = program.args[0];
-console.log(filePath);
+
+fs.readFile(filePath, {encoding: "utf8"}).then((file) => {
+  console.log(file);
+});

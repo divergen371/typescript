@@ -1,7 +1,14 @@
 function main() {
-  fetchUserInfo("divergen371").catch((error) => {
-    console.error(`エラーが発生しました${error}`);
-  });
+  fetchUserInfo("divergen371")
+    .then((userInfo) => {
+      createView(userInfo);
+    })
+    .then((view) => {
+      displayView(view);
+    })
+    .catch((error) => {
+      console.error(`エラーが発生しました${error}`);
+    });
 }
 
 function fetchUserInfo(userId) {
@@ -10,10 +17,7 @@ function fetchUserInfo(userId) {
       if (!res.ok) {
         return Promise.reject(new Error(`${res.status}: ${res.statusText}`));
       } else {
-        return res.json().then((userInfo) => {
-          const view = createView(userInfo);
-          displayView(view);
-        });
+        return res.json();
       }
     }
   );

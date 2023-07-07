@@ -1,21 +1,19 @@
 import { program } from "commander";
-import { marked } from "marked";
+import { md2html } from "./md2html.js";
 import * as fs from "node:fs/promises";
 
 program.option("--gfm", "GFMを有効にする");
 program.parse(process.argv);
 const filePath = program.args[0];
 
-const opts = program.opts();
 const cliOpts = {
-  gfm: opts.gfm ?? false,
+  gfm: false,
+  ...program.opts(),
 };
 
 fs.readFile(filePath, { encoding: "utf8" })
   .then((file) => {
-    const html = marked.parse(file, {
-      gfm: cliOpts.gfm,
-    });
+    const html = md2html(file, cliOpts);
     console.log(html);
   })
   .catch((err) => {

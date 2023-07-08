@@ -3,10 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://jsprimer.net/use-case/todoapp/final/final/index.css"
+    />
     <title>Todo App</title>
   </head>
   <body>
-    <h1>Todo App</h1>
-    <script src="index.js" type="module"></script>
+    <div class="todoapp">
+      <form id="js-form">
+        <input
+          type="text"
+          id="js-form-input"
+          class="new-todo"
+          placeholder="What need to be done?"
+          autocomplete="off"
+        />
+      </form>
+      <div id="js-todo-list" class="todo-list"></div>
+      <footer>
+        <span id="js-todo-count">Todoアイテムの数: 0</span>
+      </footer>
+    </div>
+    <script src="./index.js" type="module"></script>
   </body>
 </html>
